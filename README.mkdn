@@ -1,42 +1,46 @@
-KnightWalker 4.19.x Kernel Source
-====================================
+A³-X00TD 4.19.x Kernel Source
+=============================
 
 Getting Started
 ---------------
-You can use this source if u Want or Download Builded Kernel / Release build from this https://telegra.ph/Projekt-Walker-419-Kernel-Download-Links-09-25 ,
+To use this kernel source for building rom, you need clone with this command
+```bash
+git clone --single-branch --recursive https://github.com/aepranata/kernel_asus_X00TD.git kernel/asus/X00TD
+```
 
-Clone with `--recursive` option coz this source has submodule.
+To use this kernel source for standalone compile, you need clone with this command
+```bash
+git clone --single-branch --recursive https://github.com/aepranata/kernel_asus_X00TD.git <kernel-path>
+```
 
-Just Copy, Paste, Then Execute the command :)
 
-
-OverClock Kernel
-------------------
-This Kernel is using Stock Freq. If u want Overclocked Freq, Do this:
-
-To Overclock CPU:
-
-- Add `overclock.cpu=1` into boot cmdline. Or
-- Hardcode, set this to 1 https://github.com/RyuujiX/android_kernel_asus_sdm660-4.19/blob/test/drivers/clk/qcom/clk-cpu-osm-660.c#L263
-
-To Overclock GPU:
-
-- Add `overclock.gpu=1` into boot cmdline. Or
-- Hardcode, set this to 1 https://github.com/RyuujiX/android_kernel_asus_sdm660-4.19/blob/test/drivers/gpu/msm/adreno.c#L31
-
-KernelSU
+KernelSU-Next
 --------
-KernelSU is implemented and enabled by default. If u don't want it, Do this:
+KernelSU-Next is implemented and enabled by default. If u don't want it, Do this:
 
-- Add `kernelsu.enabled=0` into boot cmdline, or
-- Disable `CONFIG_KSU`
+Add this into boot cmdline
+```bash
+kernelsu.enabled=0
+```
+
+Or, Disable this config
+```bash
+CONFIG_KSU
+```
 
 If u only want to enable Safe Mode (U should enable KernelSU too), Which u just want Root Access and Modules Feature disabled, Do this:
 
-- Add `kernelsu.safemode=1` into boot cmdline. Or
-- Set `CONFIG_KSU_SAFE_MODE=y` in defconfig.
+Add this into boot cmdline
+```bash
+kernelsu.safemode=1
+```
 
-Source: https://github.com/RyuujiX/KernelSU
+Or, Set this in defconfig.
+```bash
+CONFIG_KSU_SAFE_MODE=y
+```
+
+Source: https://github.com/aepranata/KernelSU-Next
 
 
 Using New Novatek Touchscreen Driver
@@ -47,20 +51,14 @@ Working smoothly on mine with new driver.
 
 If u want to use new driver, do this:
 
-- Add `use_new_nvtouch=1` into boot cmdline. Or
-- Hardcode, set this to 1 https://github.com/RyuujiX/android_kernel_asus_sdm660-4.19/blob/test/init/main.c#L147
-- Or, Disable Original NVT Driver in defconfig. `CONFIG_TOUCHSCREEN_NT36xxx_ASUS` is New NVT Driver.
+Add this into boot cmdline. Or
+```bash
+use_new_nvtouch=1
+```
 
-Spectrum Support
-----------------
-Pick Spectrum Script from Here: https://github.com/RyuujiX/spectrum , then rename it to init.spectrum.rc
+Or, Hardcode, set this to 1
+```bash
+https://github.com/RyuujiX/android_kernel_asus_sdm660-4.19/blob/test/init/main.c#L147
+```
 
-Name: 4.19-xxxxxxxxx
-
-Note: 4.19-xxxx-oc is for Overclocked Both CPU and GPU.
-
-Or , make it by ur self .
-
-My CI Builder Script
---------------------
-Check it out: https://github.com/RyuujiX/builder-xobod-r
+Or, Disable Original NVT Driver in defconfig. `CONFIG_TOUCHSCREEN_NT36xxx_ASUS` is New NVT Driver.
