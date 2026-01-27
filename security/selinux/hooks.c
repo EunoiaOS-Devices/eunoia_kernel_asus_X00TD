@@ -2452,6 +2452,7 @@ static int check_nnp_nosuid(const struct linux_binprm *bprm,
 	int nosuid = !mnt_may_suid(bprm->file->f_path.mnt);
 	int rc;
 	u32 av;
+	u32 seclen;
 
 	if (!nnp && !nosuid)
 		return 0; /* neither NNP nor nosuid */
