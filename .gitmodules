@@ -1,0 +1,4 @@
+[submodule "KernelSU-Next"]
+	path = KernelSU-Next
+	url = git@github.com:aepranata/KernelSU-Next.git
+	branch = legacy
