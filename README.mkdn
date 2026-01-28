@@ -1,0 +1,14 @@
+A³-X00TD 4.19 Kernel Source
+=============================
+
+Getting Started
+---------------
+To use this kernel source for building rom, you need clone with this command
+```bash
+git clone --single-branch --recursive https://github.com/aepranata/kernel_asus_X00TD.git kernel/asus/X00TD
+```
+
+To use this kernel source for standalone compile, you need clone with this command
+```bash
+git clone --single-branch --recursive https://github.com/aepranata/kernel_asus_X00TD.git <kernel-path>
+```
